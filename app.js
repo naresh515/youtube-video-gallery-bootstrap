@@ -50,15 +50,13 @@ function openModel(element) {
     var imgSrc = $(element).attr('src');
     if (videoSo) {
         currentvidIndex = videos.index(element);
-        copyElement();
         $(".zoom-img").append("<iframe src='" + videoStr + videoSo + "?autoplay=1&loop=1&playlist=" + videoSo + "' allowfullscreen></iframe>");
     } else if (imgSrc && imgSrc.endsWith(".jpg")) {
-        copyElement();
         $(".zoom-img").append("<img src='" + imgSrc + "'>");
     } else if (imgSrc && imgSrc.endsWith(".mp4")) {
-        copyElement()
         $(".zoom-img").append("<video src='" + imgSrc + "'controls loop autoplay>");
     }
+    copyElement();
 }
 
 function copyElement() {
