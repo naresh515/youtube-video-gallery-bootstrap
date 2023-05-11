@@ -23,11 +23,17 @@ body {
 }
 
 .img-fluid {
-    height: 300px;
+    height: 350px !important;
     width: 100%;
     cursor: pointer;
     margin: 40px 0px 0px;
     position: relative;
+    object-fit: cover;
+}
+
+iframe {
+    height: 400px;
+    width: 800px;
 }
 
 .play-btn {
