@@ -51,9 +51,9 @@ function openModel(element) {
     if (videoSo) {
         currentvidIndex = videos.index(element);
         $(".zoom-img").append("<iframe src='" + videoStr + videoSo + "?autoplay=1&loop=1&playlist=" + videoSo + "' allowfullscreen></iframe>");
-    } else if (imgSrc && imgSrc.endsWith(".jpg")) {
+    } else if (imgSrc && imgSrc.startsWith("./img")) {
         $(".zoom-img").append("<img src='" + imgSrc + "'>");
-    } else if (imgSrc && imgSrc.endsWith(".mp4")) {
+    } else if (imgSrc && imgSrc.startsWith("./video")) {
         $(".zoom-img").append("<video src='" + imgSrc + "'controls loop autoplay>");
     }
     copyElement();
