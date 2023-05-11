@@ -30,8 +30,7 @@ $(document).ready(function () {
         if (currentvidIndex < 0) {
             currentvidIndex = videos.length - 1;
         }
-        videoSo = $(videos[currentvidIndex]).data('id');
-        $(".zoom-img iframe").attr("src", videoStr + videoSo);
+        prevNextBtn();
     });
 
     $(".next-btn").click(function () {
@@ -39,8 +38,7 @@ $(document).ready(function () {
         if (currentvidIndex >= videos.length) {
             currentvidIndex = 0;
         }
-        videoSo = $(videos[currentvidIndex]).data('id');
-        $(".zoom-img iframe").attr("src", videoStr + videoSo);
+        prevNextBtn();
     });
 
 });
@@ -48,13 +46,16 @@ $(document).ready(function () {
 function openModel(element) {
     var videoSo = $(element).data('id');
     var imgSrc = $(element).attr('src');
-    if (videoSo) {
+    var dataType = $(element).data('type');
+
+    if (dataType === "youtube") {
         currentvidIndex = videos.index(element);
         $(".zoom-img").append("<iframe src='" + videoStr + videoSo + "?autoplay=1&loop=1&playlist=" + videoSo + "' allowfullscreen></iframe>");
-    } else if (imgSrc && imgSrc.startsWith("./img")) {
+    } else if (dataType === "image") {
         $(".zoom-img").append("<img src='" + imgSrc + "'>");
-    } else if (imgSrc && imgSrc.startsWith("./video")) {
-        $(".zoom-img").append("<video src='" + imgSrc + "'controls loop autoplay>");
+    } else if (dataType === "video") {
+        var videoSrc = $(element).attr('src');
+        $(".zoom-img").append("<video src='" + videoSrc + "'controls loop autoplay>");
     }
     copyElement();
 }
@@ -62,4 +63,9 @@ function openModel(element) {
 function copyElement() {
     $(".img-overlay").css("display", "flex");
     $("body").addClass("overlay-open");
+}
+
+function prevNextBtn() {
+    videoSo = $(videos[currentvidIndex]).data('id');
+    $(".zoom-img iframe").attr("src", videoStr + videoSo);
 }
