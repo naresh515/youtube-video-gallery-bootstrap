@@ -51,16 +51,18 @@ function openModel(element) {
     if (videoSo) {
         console.log(videoStr + videoSo)
         currentvidIndex = videos.index(element);
-        $(".img-overlay").css("display", "flex");
+        copyElement();
         $(".zoom-img").append("<iframe src='" + videoStr + videoSo + "?autoplay=1&loop=1&playlist=" + videoSo + "' allowfullscreen></iframe>");
-        $("body").addClass("overlay-open");
     } else if (imgSrc) {
-        $(".img-overlay").css("display", "flex");
+        copyElement();
         $(".zoom-img").append("<img src='" + imgSrc + "'>");
-        $("body").addClass("overlay-open");
-    } else if (imgSrc) {
-        $(".img-overlay").css("display", "flex");
-        $(".zoom-img").append("<video src='" + imgSrc + "'controls loop autoplay>");
-        $("body").addClass("overlay-open");
+    } else {
+        copyElement();
+        $(".zoom-img").append("<video src='" + + "'controls loop autoplay>");
     }
+}
+
+function copyElement() {
+    $(".img-overlay").css("display", "flex");
+    $("body").addClass("overlay-open");
 }
