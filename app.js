@@ -13,6 +13,7 @@ $(document).ready(function () {
         $(".img-overlay").css("display", "none");
         $(".zoom-img iframe").remove();
         $(".zoom-img img").remove();
+        $(".zoom-img video").remove();
         $("body").removeClass("overlay-open");
     })
 
@@ -47,18 +48,16 @@ $(document).ready(function () {
 function openModel(element) {
     var videoSo = $(element).data('id');
     var imgSrc = $(element).attr('src');
-    console.log(element);
     if (videoSo) {
-        console.log(videoStr + videoSo)
         currentvidIndex = videos.index(element);
         copyElement();
         $(".zoom-img").append("<iframe src='" + videoStr + videoSo + "?autoplay=1&loop=1&playlist=" + videoSo + "' allowfullscreen></iframe>");
-    } else if (imgSrc) {
+    } else if (imgSrc && imgSrc.endsWith(".jpg")) {
         copyElement();
         $(".zoom-img").append("<img src='" + imgSrc + "'>");
-    } else {
-        copyElement();
-        $(".zoom-img").append("<video src='" + + "'controls loop autoplay>");
+    } else if (imgSrc && imgSrc.endsWith(".mp4")) {
+        copyElement()
+        $(".zoom-img").append("<video src='" + imgSrc + "'controls loop autoplay>");
     }
 }
 
