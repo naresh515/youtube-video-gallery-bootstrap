@@ -120,6 +120,24 @@ img {
     justify-items: end;
 }
 
+@media screen and (min-width:320px) and (max-width: 400px) {
+    .img-fluid {
+        height: 143px !important;
+    }
+}
+
+@media screen and (min-width:400px) and (max-width: 570px) {
+    .img-fluid {
+        height: auto !important;
+    }
+}
+
+@media screen and (min-width:570px) and (max-width: 800px) {
+    .img-fluid {
+        height: 143px !important;
+    }
+}
+
 @media screen and (min-width:320px) and (max-width: 800px) {
     .close-btn {
         padding-left: 0px;
