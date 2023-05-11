@@ -71,41 +71,6 @@ iframe {
     }
 }
 
-.video-gallery video:before {
-    font-family: FontAwesome;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    opacity: 0;
-    color: #fff;
-    font-size: 15px;
-    content: '\f04b  Watch Video';
-    letter-spacing: 3px;
-    z-index: 9;
-    transition: 0.4s;
-    border-bottom: 1px solid;
-    transform: translate(-50%, -50%);
-}
-
-.video-gallery video:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 92%;
-    height: 100%;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    content: '';
-    transition: 0.4s;
-    max-width: 100%;
-    margin: 0px 15px;
-}
-
-.video-gallery video:hover:after,
-.video-gallery video:hover:before {
-    opacity: 1;
-}
-
 li a.active {
     background-color: red !important;
     color: white !important;
@@ -153,10 +118,6 @@ img {
 .zoom-img {
     display: grid;
     justify-items: end;
-}
-
-.zoom-img img {
-    transition: all 0.5s ease-in-out;
 }
 
 @media screen and (min-width:320px) and (max-width: 410px) {
