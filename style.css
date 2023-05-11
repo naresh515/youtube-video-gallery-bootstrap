@@ -58,7 +58,7 @@ iframe {
     align-items: center;
     z-index: 9;
     display: none;
-    animation: overlay .5s ease-in-out;
+    animation: overlay .2s ease-in-out;
 }
 
 @keyframes overlay {

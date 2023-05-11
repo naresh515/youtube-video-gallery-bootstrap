@@ -1,23 +1,18 @@
+var videos = $("iframe.img-fluid");
+const videoStr = 'https://www.youtube.com/embed/';
+
 $(document).ready(function () {
     var currentvidIndex = 0;
-    var videos = $(".img-fluid");
-    const videoStr = 'https://www.youtube.com/embed/';
     var videoSo = '';
 
     $(".img-fluid").click(function () {
-        videoSo = $(this).data('id');
-        if (videoSo) {
-            console.log(videoStr + videoSo)
-            currentvidIndex = videos.index(this);
-            $(".img-overlay").css("display", "flex");
-            $(".zoom-img").append("<iframe src='" + videoStr + videoSo + "?autoplay=1&loop=1&playlist=" + videoSo + "' allowfullscreen></iframe>");
-            $("body").addClass("overlay-open");
-        }
+        openModel();
     });
 
     $(".close-btn").click(function () {
         $(".img-overlay").css("display", "none");
         $(".zoom-img iframe").remove();
+        $(".zoom-img img").remove();
         $("body").removeClass("overlay-open");
     })
 
@@ -48,3 +43,24 @@ $(document).ready(function () {
     });
 
 });
+
+function openModel(element) {
+    var videoSo = $(element).data('id');
+    var imgSrc = $(element).attr('src');
+    console.log(element);
+    if (videoSo) {
+        console.log(videoStr + videoSo)
+        currentvidIndex = videos.index(element);
+        $(".img-overlay").css("display", "flex");
+        $(".zoom-img").append("<iframe src='" + videoStr + videoSo + "?autoplay=1&loop=1&playlist=" + videoSo + "' allowfullscreen></iframe>");
+        $("body").addClass("overlay-open");
+    } else if (imgSrc) {
+        $(".img-overlay").css("display", "flex");
+        $(".zoom-img").append("<img src='" + imgSrc + "'>");
+        $("body").addClass("overlay-open");
+    } else if (imgSrc) {
+        $(".img-overlay").css("display", "flex");
+        $(".zoom-img").append("<video src='" + imgSrc + "'controls loop autoplay>");
+        $("body").addClass("overlay-open");
+    }
+}
