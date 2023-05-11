@@ -3,10 +3,15 @@ const videoStr = 'https://www.youtube.com/embed/';
 
 $(document).ready(function () {
     var currentvidIndex = 0;
-    var videoSo = '';
 
     $(".img-fluid").click(function () {
         openModel();
+    });
+
+    $(".play-btn").click(function () {
+        var $container = $(this).closest(".col-sm-4");
+        var $video = $container.find(".img-fluid");
+        openModel($video[0]);
     });
 
     $(".close-btn").click(function () {
