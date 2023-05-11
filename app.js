@@ -10,7 +10,7 @@ $(document).ready(function () {
             console.log(videoStr + videoSo)
             currentvidIndex = videos.index(this);
             $(".img-overlay").css("display", "flex");
-            $(".zoom-img").append("<iframe src='" + videoStr + videoSo + "' ></iframe>");
+            $(".zoom-img").append("<iframe src='" + videoStr + videoSo + "?autoplay=1&loop=1&playlist=" + videoSo + "' allowfullscreen></iframe>");
             $("body").addClass("overlay-open");
         }
     });
